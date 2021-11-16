@@ -30,7 +30,7 @@ pipeline {
 }
 
 def getIP(){
-    def ip =  sh(returnStdout: true, script:"/sbin/ip route|awk '/default/ { print $3 }'")
+    def ip =  sh(returnStdout: true, script:"/sbin/ip route|awk '/default/ { print \$3 }'")
     echoInfo("Host IP:$ip")
 }
 
