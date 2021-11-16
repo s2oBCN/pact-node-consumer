@@ -5,7 +5,7 @@ pipeline {
         }
     }
     environment {
-        PACT_BROKER_URL = 'http://172.29.240.1'
+        PACT_BROKER_URL = "http://${getIP()}"
     }
      options {
         ansiColor('xterm')
@@ -27,4 +27,17 @@ pipeline {
             }
         }
     }
+}
+
+def getIP(){
+    def ip =  sh(returnStdout: true, script:"/sbin/ip route|awk '/default/ { print $3 }'")
+    echoInfo("Host IP:$ip")
+}
+
+def echoInfo(msg){
+    echo "\033[32m ${msg} \033[0m"
+}
+
+def echoError(msg){
+    echo "\033[31m ${msg} \033[0m"
 }
