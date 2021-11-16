@@ -1,0 +1,19 @@
+{
+  "name": "mochajs-pact-example",
+  "version": "1.0.0",
+  "description": "Mocha Pact example",
+  "main": "index.js",
+  "scripts": {
+    "test": "rimraf pacts && mocha",
+    "pact:publish": "pact-broker publish pacts --consumer-app-version='01' --broker-base-url=http://172.29.240.1",
+    "pact:publishWith": "pact-broker publish pacts --consumer-app-version=\"$(npx @pact-foundation/absolute-version)\" --tag-with-git-branch --broker-base-url=http://172.29.240.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@pact-foundation/pact": "^9.16.0",
+    "axios": "^0.21.1",
+    "chai": "^3.5.0",
+    "mocha": "^8.2.1",
+    "rimraf": "^2.6.2"
+  }
+}
