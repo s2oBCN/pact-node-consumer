@@ -16,7 +16,7 @@ describe("The User API", () => {
     log: path.resolve(process.cwd(), "logs", "mockserver-integration.log"),
     dir: path.resolve(process.cwd(), "pacts"),
     spec: 2,
-    consumer: "UserServiceClient",
+    consumer: "UserServiceNodeClient",
     provider: "UserService",
     pactfileWriteMode: "merge",
   })
